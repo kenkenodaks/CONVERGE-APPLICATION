@@ -72,7 +72,6 @@ export async function POST(request: NextRequest) {
 
     // Only store clean applicant details in Drive
     await saveJsonToDrive(folderId, {
-      id: applicationId,
       plan: fields.plan,
       name: fields.fullName,
       phone: fields.cellphone,
@@ -81,7 +80,6 @@ export async function POST(request: NextRequest) {
       barangay: fields.barangay,
       municipality: fields.municipality,
       landmark: fields.landmark,
-      date: new Date(submittedAt).toLocaleString('en-PH', { timeZone: 'Asia/Manila' }),
     });
 
     return NextResponse.json({
