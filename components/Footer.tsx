@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-5">
               <a
-                href="https://www.facebook.com/people/Fibernation-Corp-Ilocos-Norte/61572385187813/"
+                href="https://www.facebook.com/people/BIDA-Converge/61585961889215/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200"
