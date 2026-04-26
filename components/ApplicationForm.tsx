@@ -390,6 +390,28 @@ export default function ApplicationForm() {
                     />
                   </Field>
 
+                  <Field
+                    label="Landmark"
+                    required
+                    error={form2.formState.errors.landmark?.message}
+                  >
+                    <div className="relative">
+                      <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                      <input
+                        {...form2.register('landmark')}
+                        placeholder="e.g. Near SM City, beside the church"
+                        className={cn(
+                          inputBase,
+                          'pl-10',
+                          form2.formState.errors.landmark ? inputError : inputOk
+                        )}
+                      />
+                    </div>
+                    <p className="text-xs text-slate-400 mt-1">
+                      Nearest landmark to your address
+                    </p>
+                  </Field>
+
                   <div className="flex gap-3 pt-2">
                     <button
                       type="button"
@@ -488,6 +510,7 @@ export default function ApplicationForm() {
                         .filter(Boolean)
                         .join(', ')}
                     />
+                    <ReviewRow icon={<MapPin />} label="Landmark" value={formState.landmark} />
                     {photoFile && (
                       <ReviewRow
                         icon={<Camera />}

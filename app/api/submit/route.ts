@@ -17,6 +17,7 @@ export async function POST(request: NextRequest) {
       sitio: (formData.get('sitio') as string | null)?.trim() ?? '',
       barangay: (formData.get('barangay') as string | null)?.trim() ?? '',
       municipality: (formData.get('municipality') as string | null)?.trim() ?? '',
+      landmark: (formData.get('landmark') as string | null)?.trim() ?? '',
       cellphone: (formData.get('cellphone') as string | null)?.trim() ?? '',
       email: (formData.get('email') as string | null)?.trim() ?? '',
     };
@@ -79,6 +80,7 @@ export async function POST(request: NextRequest) {
       sitio: fields.sitio,
       barangay: fields.barangay,
       municipality: fields.municipality,
+      landmark: fields.landmark,
       date: new Date(submittedAt).toLocaleString('en-PH', { timeZone: 'Asia/Manila' }),
     });
 

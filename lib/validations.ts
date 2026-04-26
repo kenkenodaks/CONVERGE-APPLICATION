@@ -31,6 +31,12 @@ export const applicationSchema = z.object({
     .max(100, 'Too long')
     .trim(),
 
+  landmark: z
+    .string()
+    .min(1, 'Landmark is required')
+    .max(150, 'Too long')
+    .trim(),
+
   cellphone: z
     .string()
     .regex(phPhoneRegex, 'Must be 11 digits starting with 09 (e.g., 09171234567)'),
@@ -54,6 +60,7 @@ export const step2Schema = applicationSchema.pick({
   sitio: true,
   barangay: true,
   municipality: true,
+  landmark: true,
 });
 
 export type ApplicationFormValues = z.infer<typeof applicationSchema>;
