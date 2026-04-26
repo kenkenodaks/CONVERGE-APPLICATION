@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import {
   User, Phone, Mail, MapPin, Camera, ChevronRight,
-  ChevronLeft, Send, Loader2, AlertCircle,
+  ChevronLeft, Send, Loader2, AlertCircle, Wifi, CheckCircle,
 } from 'lucide-react';
 
 import ProgressSteps from '@/components/ProgressSteps';
@@ -54,6 +54,7 @@ function Field({
 // ─── data accumulator type ─────────────────────────────────────────────────
 interface FormState extends Step1Values, Step2Values {
   photo: File | null;
+  plan: 'Plan 888' | 'Plan 999';
 }
 
 // ─── steps metadata ────────────────────────────────────────────────────────
@@ -195,6 +196,54 @@ export default function ApplicationForm() {
                   onSubmit={form1.handleSubmit((data) => goNext(data))}
                   className="space-y-5"
                 >
+                  {/* Plan Selection */}
+                  <div className="space-y-1.5">
+                    <label className="block text-sm font-medium text-slate-700">
+                      Select a Plan <span className="text-red-500">*</span>
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {([
+                        { value: 'Plan 888', price: '₱888', speed: '75 Mbps' },
+                        { value: 'Plan 999', price: '₱999', speed: '100 Mbps' },
+                      ] as const).map((plan) => {
+                        const selected = form1.watch('plan') === plan.value;
+                        return (
+                          <button
+                            key={plan.value}
+                            type="button"
+                            onClick={() => form1.setValue('plan', plan.value, { shouldValidate: true })}
+                            className={cn(
+                              'relative flex flex-col items-center gap-1 rounded-xl border-2 p-4 transition-all duration-200',
+                              selected
+                                ? 'border-blue-500 bg-blue-50 shadow-md shadow-blue-100'
+                                : 'border-slate-200 bg-white hover:border-blue-300'
+                            )}
+                          >
+                            {selected && (
+                              <CheckCircle className="absolute top-2 right-2 w-4 h-4 text-blue-500" />
+                            )}
+                            <Wifi className={cn('w-5 h-5', selected ? 'text-blue-500' : 'text-slate-400')} />
+                            <span className={cn('font-bold text-sm', selected ? 'text-blue-700' : 'text-slate-700')}>
+                              {plan.value}
+                            </span>
+                            <span className={cn('text-xs font-semibold', selected ? 'text-blue-600' : 'text-slate-500')}>
+                              {plan.speed}
+                            </span>
+                            <span className={cn('text-xs', selected ? 'text-blue-400' : 'text-slate-400')}>
+                              {plan.price}/mo
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {form1.formState.errors.plan && (
+                      <p className="flex items-center gap-1.5 text-xs text-red-500 mt-1 animate-fade-in">
+                        <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                        {form1.formState.errors.plan.message}
+                      </p>
+                    )}
+                  </div>
+
                   <Field
                     label="Full Name"
                     required
@@ -427,6 +476,7 @@ export default function ApplicationForm() {
 
                   {/* Summary card */}
                   <div className="bg-slate-50 rounded-2xl p-5 space-y-3 border border-slate-100">
+                    <ReviewRow icon={<Wifi />} label="Selected Plan" value={formState.plan} />
                     <ReviewRow icon={<User />} label="Full Name" value={formState.fullName} />
                     <ReviewRow icon={<Phone />} label="Cellphone" value={formState.cellphone} />
                     <ReviewRow icon={<Mail />} label="Email" value={formState.email} />

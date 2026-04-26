@@ -4,6 +4,8 @@ import { z } from 'zod';
 const phPhoneRegex = /^09\d{9}$/;
 
 export const applicationSchema = z.object({
+  plan: z.enum(['Plan 888', 'Plan 999'], { required_error: 'Please select a plan' }),
+
   fullName: z
     .string()
     .min(2, 'Full name must be at least 2 characters')
@@ -42,6 +44,7 @@ export const applicationSchema = z.object({
 });
 
 export const step1Schema = applicationSchema.pick({
+  plan: true,
   fullName: true,
   cellphone: true,
   email: true,

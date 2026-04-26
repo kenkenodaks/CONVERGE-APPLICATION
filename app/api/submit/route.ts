@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
 
     // ── Extract text fields ──────────────────────────────────────────
     const fields = {
+      plan: (formData.get('plan') as string | null)?.trim() ?? '',
       fullName: (formData.get('fullName') as string | null)?.trim() ?? '',
       sitio: (formData.get('sitio') as string | null)?.trim() ?? '',
       barangay: (formData.get('barangay') as string | null)?.trim() ?? '',
@@ -71,6 +72,7 @@ export async function POST(request: NextRequest) {
     // Only store clean applicant details in Drive
     await saveJsonToDrive(folderId, {
       id: applicationId,
+      plan: fields.plan,
       name: fields.fullName,
       phone: fields.cellphone,
       email: fields.email,
