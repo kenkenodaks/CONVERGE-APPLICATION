@@ -1,5 +1,5 @@
 import ApplicationForm from '@/components/ApplicationForm';
-import { Wifi, Zap, Shield, Headphones, Star, ChevronDown } from 'lucide-react';
+import { Wifi, Zap, Shield, Headphones, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -123,48 +123,6 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-bold text-slate-800 mb-2">{title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Testimonials ────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-slate-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Testimonials</p>
-            <h2 className="text-3xl font-bold text-slate-900">What our subscribers say</h2>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-5">
-            {[
-              {
-                quote: "The installation was quick and the speed is consistently fast. Best ISP decision I've made.",
-                name: 'Maria Santos',
-                location: 'Quezon City',
-              },
-              {
-                quote: "Work from home is so much smoother now. No more dropped video calls or slow uploads.",
-                name: 'Carlo Reyes',
-                location: 'Makati City',
-              },
-              {
-                quote: "My whole family can stream 4K on different devices simultaneously without buffering!",
-                name: 'Ana Dela Cruz',
-                location: 'Cebu City',
-              },
-            ].map(({ quote, name, location }) => (
-              <div key={name} className="card p-6">
-                <div className="flex text-amber-400 mb-3 gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-sm text-slate-600 leading-relaxed mb-4 italic">&ldquo;{quote}&rdquo;</p>
-                <div>
-                  <p className="font-semibold text-slate-800 text-sm">{name}</p>
-                  <p className="text-xs text-slate-400 mt-0.5">{location}</p>
-                </div>
               </div>
             ))}
           </div>
