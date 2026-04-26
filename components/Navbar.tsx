@@ -39,6 +39,12 @@ export default function Navbar() {
               Apply
             </Link>
             <Link
+              href="/plans"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all duration-150"
+            >
+              Plans
+            </Link>
+            <Link
               href="/admin"
               className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all duration-150"
             >

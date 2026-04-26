@@ -59,12 +59,7 @@ export default function HomePage() {
             <Link href="/#apply" className="btn-primary px-8 py-4 text-base">
               Apply for Free
             </Link>
-            <Link
-              href="https://www.convergeict.com/plans"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost px-8 py-4 text-base"
-            >
+            <Link href="/plans" className="btn-ghost px-8 py-4 text-base">
               View Plans
             </Link>
           </div>
