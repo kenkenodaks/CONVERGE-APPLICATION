@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-// Philippine mobile number: 09XXXXXXXXX or +639XXXXXXXXX
-const phPhoneRegex = /^(09|\+?639)\d{9}$/;
+// Philippine mobile number: 09XXXXXXXXX — exactly 11 digits
+const phPhoneRegex = /^09\d{9}$/;
 
 export const applicationSchema = z.object({
   fullName: z
@@ -31,10 +31,7 @@ export const applicationSchema = z.object({
 
   cellphone: z
     .string()
-    .regex(
-      phPhoneRegex,
-      'Enter a valid PH number (e.g., 09171234567 or +639171234567)'
-    ),
+    .regex(phPhoneRegex, 'Must be 11 digits starting with 09 (e.g., 09171234567)'),
 
   email: z
     .string()

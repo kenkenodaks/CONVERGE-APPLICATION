@@ -233,7 +233,7 @@ export default function ApplicationForm() {
                       />
                     </div>
                     <p className="text-xs text-slate-400 mt-1">
-                      Format: 09XXXXXXXXX or +639XXXXXXXXX
+                      Must be exactly 11 digits starting with 09
                     </p>
                   </Field>
 
@@ -255,6 +255,9 @@ export default function ApplicationForm() {
                         )}
                       />
                     </div>
+                    <p className="text-xs text-slate-400 mt-1">
+                      Must be a valid email (e.g., juan@gmail.com)
+                    </p>
                   </Field>
 
                   <div className="pt-2">
