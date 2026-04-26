@@ -37,14 +37,14 @@ export default function HomePage() {
           </h1>
 
           <p className="text-blue-100/90 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
-            Apply for Converge FiberX and experience uninterrupted speeds up to{' '}
-            <strong className="text-white">1&nbsp;Gbps</strong> — for streaming, gaming, work from home, and everything in between.
+            Apply for Converge Bida Fiber and experience uninterrupted speeds up to{' '}
+            <strong className="text-white">100&nbsp;Mbps</strong> — for streaming, gaming, work from home, and everything in between.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-3 mb-10 text-center">
             {[
-              { value: '1 Gbps', label: 'Max Speed' },
+              { value: '100 Mbps', label: 'Max Speed' },
               { value: '99.9%', label: 'Uptime' },
               { value: '24/7', label: 'Support' },
             ].map(({ value, label }) => (
