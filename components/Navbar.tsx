@@ -45,12 +45,6 @@ export default function Navbar() {
               Plans
             </Link>
             <Link
-              href="/admin"
-              className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all duration-150"
-            >
-              Admin
-            </Link>
-            <Link
               href="/#apply"
               className="ml-3 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl shadow-blue hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
             >
@@ -76,7 +70,6 @@ export default function Navbar() {
                 { href: '/', label: 'Home' },
                 { href: '/#apply', label: 'Apply' },
                 { href: '/plans', label: 'Plans' },
-                { href: '/admin', label: 'Admin Dashboard' },
               ].map(({ href, label }) => (
                 <Link
                   key={href}
