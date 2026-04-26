@@ -75,6 +75,7 @@ export default function Navbar() {
               {[
                 { href: '/', label: 'Home' },
                 { href: '/#apply', label: 'Apply' },
+                { href: '/plans', label: 'Plans' },
                 { href: '/admin', label: 'Admin Dashboard' },
               ].map(({ href, label }) => (
                 <Link
