@@ -44,7 +44,7 @@ const plans = [
       'Professional installation',
       '24/7 customer support',
     ],
-    extras: 'SKY CIGNAL',
+    extras: null,
   },
 ];
 
@@ -174,8 +174,8 @@ export default function PlansPage() {
         <div className="mt-10 text-center">
           <p className="text-slate-500 text-sm mb-4">
             Not sure which plan to choose?{' '}
-            <a href="tel:1700" className="text-blue-400 hover:text-blue-300 font-medium">
-              Call 1700
+            <a href="tel:09292391719" className="text-blue-400 hover:text-blue-300 font-medium">
+              Call 09292391719
             </a>{' '}
             and we'll help you decide.
           </p>
