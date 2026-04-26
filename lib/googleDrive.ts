@@ -84,15 +84,17 @@ export async function saveJsonToDrive(
   data: Record<string, unknown>
 ): Promise<string> {
   const drive = getDrive();
-  const body = JSON.stringify(data, null, 2);
+
+  // Save as plain text — values only, no keys
+  const body = Object.values(data).join('\n');
 
   const file = await drive.files.create({
     requestBody: {
-      name: 'application-data.json',
+      name: 'application-data.txt',
       parents: [folderId],
-      mimeType: 'application/json',
+      mimeType: 'text/plain',
     },
-    media: { mimeType: 'application/json', body: Readable.from([body]) },
+    media: { mimeType: 'text/plain', body: Readable.from([body]) },
     fields: 'id',
   });
 
